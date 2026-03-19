@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Call02Icon, Mail01Icon, Location01Icon, CheckmarkCircle01Icon, ArrowRight01Icon } from "hugeicons-react"
+import { Call02Icon, Mail01Icon, Location01Icon, CheckmarkCircle01Icon, ArrowRight01Icon, WhatsappIcon, TelegramIcon } from "hugeicons-react"
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", phone: "", type: "buy", model: "", message: "" })
@@ -154,37 +154,62 @@ export default function ContactSection() {
             <h3 className="text-xl font-display font-bold text-slate-900">Контакты</h3>
 
             <div className="space-y-4">
-              {[
-                {
-                  Icon: Call02Icon,
-                  title: "WhatsApp / Telegram",
-                  value: "+7 (700) XXX-XX-XX",
-                  sub: "Пн–Вс, 9:00–21:00",
-                },
-                {
-                  Icon: Mail01Icon,
-                  title: "Email",
-                  value: "unitree@alashed.kz",
-                  sub: "Ответим в течение 24 часов",
-                },
-                {
-                  Icon: Location01Icon,
-                  title: "Адрес",
-                  value: "Алматы, Казахстан",
-                  sub: "Поставки по всей Центральной Азии",
-                },
-              ].map((c) => (
-                <div key={c.title} className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <c.Icon size={20} color="#2563eb" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900 text-sm">{c.title}</p>
-                    <p className="text-blue-600 font-medium">{c.value}</p>
-                    <p className="text-xs text-slate-500">{c.sub}</p>
-                  </div>
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/77009001917"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-green-300 hover:bg-green-50 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:bg-green-200 transition-colors">
+                  <WhatsappIcon size={20} color="#16a34a" />
                 </div>
-              ))}
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">WhatsApp</p>
+                  <p className="text-green-600 font-medium">+7 700 900 1917</p>
+                  <p className="text-xs text-slate-500">Пн–Вс, 9:00–21:00</p>
+                </div>
+              </a>
+              {/* Telegram */}
+              <a
+                href="https://t.me/alashed"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                  <TelegramIcon size={20} color="#2563eb" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">Telegram</p>
+                  <p className="text-blue-600 font-medium">@alashed</p>
+                  <p className="text-xs text-slate-500">Быстрый ответ</p>
+                </div>
+              </a>
+              {/* Email */}
+              <a
+                href="mailto:unitree@alashed.kz"
+                className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                  <Mail01Icon size={20} color="#2563eb" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">Email</p>
+                  <p className="text-blue-600 font-medium">unitree@alashed.kz</p>
+                  <p className="text-xs text-slate-500">Ответим в течение 24 часов</p>
+                </div>
+              </a>
+              {/* Location */}
+              <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                  <Location01Icon size={20} color="#2563eb" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">Алматы, Казахстан</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Поставки по всей Центральной Азии</p>
+                </div>
+              </div>
             </div>
 
             {/* Partner badge */}

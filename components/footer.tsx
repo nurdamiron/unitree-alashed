@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight01Icon, Mail01Icon, Call02Icon, Location01Icon } from "hugeicons-react"
+import { ArrowRight01Icon, Mail01Icon, Call02Icon, Location01Icon, WhatsappIcon, TelegramIcon, InstagramIcon } from "hugeicons-react"
 
 const productLinks = [
   { label: "Unitree Go2", href: "/products/go2" },
@@ -99,7 +99,9 @@ export default function Footer() {
                 <Call02Icon size={16} color="#60a5fa" className="flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-medium">WhatsApp / Telegram</p>
-                  <p>+7 (700) XXX-XX-XX</p>
+                  <a href="https://wa.me/77009001917" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    +7 700 900 1917
+                  </a>
                   <p className="text-xs mt-0.5">Пн–Вс, 9:00–21:00</p>
                 </div>
               </li>
@@ -120,6 +122,24 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+            {/* Social links */}
+            <div className="flex gap-3 mt-4">
+              <a href="https://wa.me/77009001917" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-green-600 hover:border-green-600 transition-all"
+                aria-label="WhatsApp">
+                <WhatsappIcon size={14} color="white" />
+              </a>
+              <a href="https://t.me/alashed" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-blue-500 hover:border-blue-500 transition-all"
+                aria-label="Telegram">
+                <TelegramIcon size={14} color="white" />
+              </a>
+              <a href="https://www.instagram.com/alashed.kz/" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition-all"
+                aria-label="Instagram">
+                <InstagramIcon size={14} color="white" />
+              </a>
+            </div>
             <div className="mt-5 pt-5 border-t border-slate-800">
               <p className="text-xs text-slate-500 mb-2">Часть экосистемы</p>
               <a
