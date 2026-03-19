@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Syne } from "next/font/google"
+import { Inter, Exo_2 } from "next/font/google"
 import "./globals.css"
 
 const inter = Inter({
@@ -8,8 +8,8 @@ const inter = Inter({
   display: "swap",
 })
 
-const syne = Syne({
-  subsets: ["latin"],
+const exo2 = Exo_2({
+  subsets: ["latin", "cyrillic"],
   variable: "--font-syne",
   weight: ["400", "600", "700", "800"],
   display: "swap",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${inter.variable} ${syne.variable}`}>
+    <html lang="ru" className={`${inter.variable} ${exo2.variable}`}>
       <body>{children}</body>
     </html>
   )

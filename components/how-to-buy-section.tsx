@@ -35,9 +35,9 @@ const steps = [
 
 export default function HowToBuySection() {
   return (
-    <section className="py-20 bg-slate-900">
+    <section className="py-12 md:py-20 bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 sm:mb-14">
           <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">
             Процесс покупки
           </p>
@@ -60,7 +60,7 @@ export default function HowToBuySection() {
                 />
               )}
 
-              <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 hover:border-blue-500/50 transition-colors relative z-10 h-full">
+              <div className="bg-slate-800 border border-slate-700 rounded-2xl p-5 sm:p-6 hover:border-blue-500/50 transition-colors relative z-10 h-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center font-mono">
                     {s.n}
@@ -79,7 +79,7 @@ export default function HowToBuySection() {
         <div className="text-center mt-10">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-500 transition-colors text-lg"
+            className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl hover:bg-blue-500 transition-colors text-base sm:text-lg"
           >
             Начать — оставить заявку
             <ArrowRight01Icon size={20} color="currentColor" />

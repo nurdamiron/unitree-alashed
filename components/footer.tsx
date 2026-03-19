@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight01Icon, Mail01Icon, Call02Icon, Location01Icon } from "hugeicons-react"
 
 const productLinks = [
@@ -29,12 +30,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">U</span>
-              </div>
-              <span className="text-white font-semibold">
-                Unitree<span className="text-blue-400">.</span>alashed
+            <Link href="/" className="flex items-center gap-2.5 mb-4">
+              <Image
+                src="/alashed-logo-white.svg"
+                alt="Alashed"
+                width={28}
+                height={28}
+              />
+              <span className="text-white font-semibold text-sm">
+                alashed<span className="text-blue-400 mx-0.5">×</span><span className="text-slate-400 font-normal">unitree</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-5">

@@ -47,9 +47,9 @@ const steps = [
 
 export default function RentalSection() {
   return (
-    <section id="rental" className="py-20 bg-white">
+    <section id="rental" className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left */}
           <div>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">
@@ -64,7 +64,7 @@ export default function RentalSection() {
             </p>
 
             {/* Terms */}
-            <div className="bg-blue-50 rounded-2xl p-6 mb-8 border border-blue-100">
+            <div className="bg-blue-50 rounded-2xl p-5 sm:p-6 mb-8 border border-blue-100">
               <h3 className="font-semibold text-slate-900 mb-4">Условия аренды</h3>
               <ul className="space-y-3">
                 {rentalTerms.map((item, i) => (
@@ -113,7 +113,7 @@ export default function RentalSection() {
               ))}
             </div>
 
-            <div className="mt-8 bg-slate-900 rounded-2xl p-6 text-white">
+            <div className="mt-8 bg-slate-900 rounded-2xl p-5 sm:p-6 text-white">
               <p className="text-lg font-semibold mb-2">Узнать стоимость аренды</p>
               <p className="text-slate-400 text-sm mb-4">
                 Цены зависят от модели, срока и дополнительных услуг. Свяжитесь с нами для расчёта.

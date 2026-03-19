@@ -276,7 +276,7 @@ export default function ProductsSection() {
             {/* Left: image gallery */}
             <div className="relative bg-slate-900 flex flex-col">
               {/* Main image */}
-              <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[440px] overflow-hidden">
+              <div className="relative flex-1 min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] overflow-hidden">
                 <Image
                   key={`${product.id}-img-${activeImage}`}
                   src={product.images[activeImage].src}

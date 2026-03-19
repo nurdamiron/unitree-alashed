@@ -43,9 +43,9 @@ const advantages = [
 
 export default function WhyUsSection() {
   return (
-    <section id="why" className="py-20 bg-white">
+    <section id="why" className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left */}
           <div>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">
@@ -61,14 +61,14 @@ export default function WhyUsSection() {
             </p>
 
             {/* Key numbers */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
               {[
                 { n: "5", l: "стран ЦА" },
                 { n: "10+", l: "моделей Unitree" },
                 { n: "24/7", l: "Техподдержка" },
               ].map((item) => (
-                <div key={item.l} className="text-center bg-slate-50 rounded-xl p-4 border border-slate-200">
-                  <p className="text-2xl font-bold font-display text-blue-600">{item.n}</p>
+                <div key={item.l} className="text-center bg-slate-50 rounded-xl p-3 sm:p-4 border border-slate-200">
+                  <p className="text-xl sm:text-2xl font-bold font-display text-blue-600">{item.n}</p>
                   <p className="text-xs text-slate-500 mt-1">{item.l}</p>
                 </div>
               ))}

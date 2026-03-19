@@ -1,5 +1,4 @@
-import Image from "next/image"
-import { ArrowRight01Icon, CheckmarkCircle01Icon, Calendar01Icon, SecurityCheckIcon, GraduationScrollIcon } from "hugeicons-react"
+import { ArrowRight01Icon, CheckmarkCircle01Icon, GraduationScrollIcon, SecurityCheckIcon } from "hugeicons-react"
 
 export default function HeroSection() {
   return (
@@ -12,8 +11,8 @@ export default function HeroSection() {
       {/* Cyan glow bottom-right */}
       <div className="absolute -bottom-20 right-0 w-80 h-80 bg-cyan-100 rounded-full blur-3xl opacity-50" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: text */}
           <div>
             {/* Badge */}
@@ -22,13 +21,13 @@ export default function HeroSection() {
               Официальный дистрибьютор Unitree Robotics в Центральной Азии
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold text-slate-900 leading-tight mb-6">
               Роботы{" "}
               <span className="gradient-text">Unitree</span>
               {" "}в Центральной Азии
             </h1>
 
-            <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
               Продажа, аренда и обучение. Квадруподы Go2 и B2, гуманоиды G1, H2, R1.
               Поставки в Казахстан, Узбекистан, Кыргызстан и другие страны ЦА.
               Официальная гарантия, техподдержка 24/7.
@@ -53,7 +52,7 @@ export default function HeroSection() {
             </div>
 
             {/* Trust strip */}
-            <div className="flex flex-wrap gap-6 text-sm text-slate-500">
+            <div className="flex flex-wrap gap-4 sm:gap-6 text-sm text-slate-500">
               <div className="flex items-center gap-1.5">
                 <CheckmarkCircle01Icon size={16} color="#22c55e" />
                 Официальная гарантия
@@ -69,31 +68,9 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Go2 robot image + video */}
-          <div className="relative flex flex-col gap-5">
-            {/* Main robot image */}
-            <div className="relative rounded-2xl overflow-hidden bg-slate-900 shadow-2xl aspect-[16/10]">
-              <Image
-                src="https://www.unitree.com/images/b5fffd3e4fc04e6f9fcafedb9516b341_3840x2146.jpg"
-                alt="Unitree Go2 — робот-квадрупод"
-                fill
-                className="object-cover object-center"
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              {/* Overlay badge */}
-              <div className="absolute top-4 left-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-3 py-1.5 text-white text-xs font-semibold">
-                Unitree Go2
-              </div>
-              <div className="absolute bottom-4 right-4 flex gap-2">
-                <span className="bg-slate-900/80 text-white text-xs px-2.5 py-1 rounded-full">~5 м/с</span>
-                <span className="bg-slate-900/80 text-white text-xs px-2.5 py-1 rounded-full">4D LiDAR</span>
-                <span className="bg-blue-600 text-white text-xs px-2.5 py-1 rounded-full font-semibold">от $1 600</span>
-              </div>
-            </div>
-
-            {/* YouTube embed */}
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900">
+          {/* Right: video only */}
+          <div className="relative mt-8 lg:mt-0">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-2xl">
               <iframe
                 src="https://www.youtube.com/embed/6zPvT0ig1VM?autoplay=0&rel=0"
                 title="Unitree Go2 video"
@@ -102,13 +79,12 @@ export default function HeroSection() {
                 allowFullScreen
               />
             </div>
-
-            {/* Floating cards */}
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg border border-slate-100 p-3 text-sm z-10">
+            {/* Floating cards — hidden on small screens to avoid overflow */}
+            <div className="hidden sm:block absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg border border-slate-100 p-3 text-sm z-10">
               <p className="font-semibold text-slate-900">5 стран</p>
               <p className="text-slate-500 text-xs">Центральной Азии</p>
             </div>
-            <div className="absolute top-4 -right-4 bg-white rounded-xl shadow-lg border border-slate-100 p-3 text-sm z-10">
+            <div className="hidden sm:block absolute -top-4 -right-4 bg-white rounded-xl shadow-lg border border-slate-100 p-3 text-sm z-10">
               <div className="flex items-center gap-1.5 mb-0.5">
                 <SecurityCheckIcon size={14} color="#2563eb" />
                 <p className="font-semibold text-slate-900">Гарантия</p>

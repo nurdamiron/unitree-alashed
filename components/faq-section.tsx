@@ -42,9 +42,9 @@ export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="py-20 bg-slate-50">
+    <section id="faq" className="py-12 md:py-20 bg-slate-50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 sm:mb-12">
           <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">FAQ</p>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-4">
             Часто задаваемые вопросы
@@ -59,10 +59,10 @@ export default function FAQSection() {
               className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-blue-200 transition-colors"
             >
               <button
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
                 onClick={() => setOpen(open === i ? null : i)}
               >
-                <span className="font-semibold text-slate-900 pr-4">{faq.q}</span>
+                <span className="font-semibold text-slate-900 pr-4 text-sm sm:text-base">{faq.q}</span>
                 <span
                   className={`flex-shrink-0 w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 transition-transform duration-200 ${
                     open === i ? "rotate-180 bg-blue-50 border-blue-200" : ""
@@ -72,7 +72,7 @@ export default function FAQSection() {
                 </span>
               </button>
               {open === i && (
-                <div className="px-5 pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
                   {faq.a}
                 </div>
               )}

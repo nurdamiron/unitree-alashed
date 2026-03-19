@@ -66,9 +66,9 @@ const cases = [
 
 export default function UseCasesSection() {
   return (
-    <section id="usecases" className="py-20 bg-slate-50">
+    <section id="usecases" className="py-12 md:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-10 sm:mb-14">
           <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">
             Применение
           </p>
@@ -81,11 +81,11 @@ export default function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {cases.map((c) => (
             <div
               key={c.title}
-              className={`rounded-2xl border p-6 ${c.color} hover:shadow-md transition-all duration-300`}
+              className={`rounded-2xl border p-5 sm:p-6 ${c.color} hover:shadow-md transition-all duration-300`}
             >
               <div className={`w-12 h-12 rounded-xl ${c.iconBg} flex items-center justify-center mb-4`}>
                 <c.Icon size={24} color={c.iconColor} />

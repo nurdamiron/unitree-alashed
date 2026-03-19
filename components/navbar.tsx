@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu01Icon, Cancel01Icon, ArrowRight01Icon } from "hugeicons-react"
 
@@ -42,11 +43,16 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center">
-              <span className="text-white text-xs font-bold">U</span>
-            </div>
-            <span className={`font-semibold text-lg transition-colors ${scrolled || !isHome ? "text-slate-900" : "text-slate-900"}`}>
-              Unitree<span className="text-blue-600">.</span>alashed
+            <Image
+              src="/alashed-logo.svg"
+              alt="Alashed"
+              width={28}
+              height={28}
+            />
+            <span className="font-semibold text-base text-slate-900 leading-none">
+              alashed
+              <span className="text-blue-600 mx-0.5">×</span>
+              <span className="text-slate-500 font-normal">unitree</span>
             </span>
           </Link>
 
