@@ -1,15 +1,31 @@
 "use client"
 
 import { useState } from "react"
+import { Call02Icon, Mail01Icon, Location01Icon, CheckmarkCircle01Icon, ArrowRight01Icon } from "hugeicons-react"
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", phone: "", type: "buy", model: "", message: "" })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // TODO: connect to API route or Telegram bot
-    setSent(true)
+    setLoading(true)
+    setError("")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error("Ошибка отправки")
+      setSent(true)
+    } catch {
+      setError("Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -30,9 +46,11 @@ export default function ContactSection() {
 
             {sent ? (
               <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-                <div className="text-4xl mb-3">✅</div>
+                <div className="flex justify-center mb-4">
+                  <CheckmarkCircle01Icon size={48} color="#16a34a" />
+                </div>
                 <p className="font-semibold text-green-800 text-lg mb-1">Заявка отправлена!</p>
-                <p className="text-green-600 text-sm">Мы свяжемся с вами в течение 2 часов.</p>
+                <p className="text-green-600 text-sm">Мы свяжемся с вами в течение 2 часов в рабочее время.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -70,8 +88,10 @@ export default function ContactSection() {
                   >
                     <option value="buy">Купить робота</option>
                     <option value="rent">Арендовать</option>
+                    <option value="training">Записаться на обучение</option>
                     <option value="consult">Консультация</option>
-                    <option value="partner">Партнёрство</option>
+                    <option value="partner">Партнёрство / дистрибьюция</option>
+                    <option value="edu">Корпоративная программа для вуза/компании</option>
                   </select>
                 </div>
 
@@ -87,11 +107,12 @@ export default function ContactSection() {
                     <option value="go2-pro">Go2 Pro ($2 800)</option>
                     <option value="go2-x">Go2 X ($4 500)</option>
                     <option value="go2-edu">Go2 EDU (по запросу)</option>
-                    <option value="b2">B2 (промышленный)</option>
-                    <option value="g1">G1 (гуманоид, $13 500)</option>
-                    <option value="h2">H2 (гуманоид премиум)</option>
-                    <option value="r1">R1 (гуманоид, от $5 900)</option>
-                    <option value="a2">A2 (экстремальный)</option>
+                    <option value="b2">B2 (промышленный, от $76 900)</option>
+                    <option value="g1">G1 (гуманоид, от $13 500)</option>
+                    <option value="h2">H2 (гуманоид премиум, от $29 900)</option>
+                    <option value="r1-air">R1 AIR ($5 900)</option>
+                    <option value="r1-pro">R1 Pro (~$16 000)</option>
+                    <option value="r1-edu">R1 EDU (по запросу)</option>
                   </select>
                 </div>
 
@@ -106,11 +127,19 @@ export default function ContactSection() {
                   />
                 </div>
 
+                {error && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                    {error}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white font-semibold py-3.5 rounded-xl hover:bg-blue-700 transition-colors text-sm"
+                  disabled={loading}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-3.5 rounded-xl hover:bg-blue-700 transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Отправить заявку
+                  {loading ? "Отправка..." : "Отправить заявку"}
+                  {!loading && <ArrowRight01Icon size={16} color="currentColor" />}
                 </button>
 
                 <p className="text-xs text-slate-400 text-center">
@@ -126,12 +155,29 @@ export default function ContactSection() {
 
             <div className="space-y-4">
               {[
-                { icon: "📱", title: "WhatsApp / Telegram", value: "+7 (700) XXX-XX-XX", sub: "Пн–Вс, 9:00–21:00" },
-                { icon: "📧", title: "Email", value: "unitree@alashed.kz", sub: "Ответим в течение 24 часов" },
-                { icon: "📍", title: "Адрес", value: "Алматы, Казахстан", sub: "Доставка по всему Казахстану" },
+                {
+                  Icon: Call02Icon,
+                  title: "WhatsApp / Telegram",
+                  value: "+7 (700) XXX-XX-XX",
+                  sub: "Пн–Вс, 9:00–21:00",
+                },
+                {
+                  Icon: Mail01Icon,
+                  title: "Email",
+                  value: "unitree@alashed.kz",
+                  sub: "Ответим в течение 24 часов",
+                },
+                {
+                  Icon: Location01Icon,
+                  title: "Адрес",
+                  value: "Алматы, Казахстан",
+                  sub: "Поставки по всей Центральной Азии",
+                },
               ].map((c) => (
                 <div key={c.title} className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <span className="text-2xl">{c.icon}</span>
+                  <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <c.Icon size={20} color="#2563eb" />
+                  </div>
                   <div>
                     <p className="font-semibold text-slate-900 text-sm">{c.title}</p>
                     <p className="text-blue-600 font-medium">{c.value}</p>
@@ -152,9 +198,10 @@ export default function ContactSection() {
                 href="https://it.alashed.kz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-blue-400 text-sm mt-3 hover:text-blue-300"
+                className="inline-flex items-center gap-1.5 text-blue-400 text-sm mt-3 hover:text-blue-300 transition-colors"
               >
-                it.alashed.kz →
+                it.alashed.kz
+                <ArrowRight01Icon size={14} color="currentColor" />
               </a>
             </div>
           </div>

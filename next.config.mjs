@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["www.unitree.com", "cdn.unitree.com"],
+    remotePatterns: [
+      { protocol: "https", hostname: "www.unitree.com" },
+      { protocol: "https", hostname: "oss-global-cdn.unitree.com" },
+      { protocol: "https", hostname: "img.youtube.com" },
+    ],
     formats: ["image/webp", "image/avif"],
   },
   async headers() {

@@ -1,50 +1,65 @@
+import {
+  GraduationScrollIcon,
+  Factory01Icon,
+  StarIcon,
+  SecurityPasswordIcon,
+  Settings01Icon,
+  SecurityCheckIcon,
+} from "hugeicons-react"
+
 const cases = [
   {
-    icon: "🎓",
+    Icon: GraduationScrollIcon,
     title: "Образование и исследования",
-    desc: "Университеты, технопарки и лаборатории используют Go2 EDU и G1 EDU для курсов по робототехнике, AI и кинематике. Открытое API, ROS 2 поддержка.",
+    desc: "Университеты, технопарки и лаборатории используют Go2 EDU и G1 EDU для курсов по робототехнике, AI и кинематике. Открытое API, поддержка ROS 2.",
     models: ["Go2 EDU", "G1 EDU", "R1"],
     color: "border-blue-200 bg-blue-50",
+    iconColor: "#2563eb",
     iconBg: "bg-blue-100",
   },
   {
-    icon: "🏗️",
+    Icon: Factory01Icon,
     title: "Промышленная инспекция",
     desc: "Обследование нефтяных объектов, энергетической инфраструктуры, шахт и опасных зон. B2 работает при -20°C, IP67, нагрузка до 120 кг.",
-    models: ["B2", "B2-W", "A2"],
+    models: ["B2", "B2-W"],
     color: "border-orange-200 bg-orange-50",
+    iconColor: "#ea580c",
     iconBg: "bg-orange-100",
   },
   {
-    icon: "🎬",
+    Icon: StarIcon,
     title: "Мероприятия и развлечения",
     desc: "Выставки, конференции, корпоративы, спортивные события. Go2 выступал на Азиатских играх 2023 в роли медаленосца.",
     models: ["Go2 Pro", "Go2 X", "G1"],
     color: "border-purple-200 bg-purple-50",
+    iconColor: "#9333ea",
     iconBg: "bg-purple-100",
   },
   {
-    icon: "🚒",
+    Icon: SecurityCheckIcon,
     title: "Спасательные операции",
     desc: "Обследование зданий после ЧС, разведка в опасных зонах, поисково-спасательные операции. B2 преодолевает завалы и работает в экстремальных условиях.",
     models: ["B2", "B2-W"],
     color: "border-red-200 bg-red-50",
+    iconColor: "#dc2626",
     iconBg: "bg-red-100",
   },
   {
-    icon: "🔬",
+    Icon: Settings01Icon,
     title: "Научные исследования ИИ",
     desc: "Разработка алгоритмов управления, машинное обучение, воплощённый ИИ. G1 и R1 поддерживают имитационное и подкрепляющее обучение из коробки.",
     models: ["G1 EDU", "R1 EDU", "H2 EDU"],
     color: "border-teal-200 bg-teal-50",
+    iconColor: "#0d9488",
     iconBg: "bg-teal-100",
   },
   {
-    icon: "🏢",
+    Icon: SecurityPasswordIcon,
     title: "Охрана и патрулирование",
     desc: "Автономный обход периметра, 3D-картирование, детекция аномалий. B2 и Go2 работают полностью автономно с возможностью дистанционного мониторинга.",
     models: ["B2", "Go2 X"],
     color: "border-slate-200 bg-slate-50",
+    iconColor: "#475569",
     iconBg: "bg-slate-100",
   },
 ]
@@ -72,8 +87,8 @@ export default function UseCasesSection() {
               key={c.title}
               className={`rounded-2xl border p-6 ${c.color} hover:shadow-md transition-all duration-300`}
             >
-              <div className={`w-12 h-12 rounded-xl ${c.iconBg} flex items-center justify-center text-2xl mb-4`}>
-                {c.icon}
+              <div className={`w-12 h-12 rounded-xl ${c.iconBg} flex items-center justify-center mb-4`}>
+                <c.Icon size={24} color={c.iconColor} />
               </div>
               <h3 className="font-display font-bold text-slate-900 mb-2">{c.title}</h3>
               <p className="text-sm text-slate-600 mb-4 leading-relaxed">{c.desc}</p>

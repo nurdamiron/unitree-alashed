@@ -1,31 +1,41 @@
+import {
+  StarIcon,
+  DeliveryBox01Icon,
+  CustomerServiceIcon,
+  GraduationScrollIcon,
+  MoneyBag01Icon,
+  Settings01Icon,
+  ArrowRight01Icon,
+} from "hugeicons-react"
+
 const advantages = [
   {
-    icon: "🏆",
+    Icon: StarIcon,
     title: "Официальный партнёр",
     desc: "Прямые поставки от Unitree Robotics. Официальная гарантия производителя на все модели.",
   },
   {
-    icon: "🇰🇿",
-    title: "Доставка по Казахстану",
-    desc: "Доставляем в Алматы, Астану и другие города. Таможенное оформление и растаможка под ключ.",
+    Icon: DeliveryBox01Icon,
+    title: "Поставки по всей ЦА",
+    desc: "Казахстан, Узбекистан, Кыргызстан, Таджикистан, Туркменистан. Таможенное оформление под ключ.",
   },
   {
-    icon: "🔧",
+    Icon: CustomerServiceIcon,
     title: "Техподдержка 24/7",
     desc: "Наши инженеры помогут с настройкой, обновлением ПО и устранением неполадок в любое время.",
   },
   {
-    icon: "📚",
-    title: "Обучение и интеграция",
-    desc: "Проводим обучение операторов, помогаем интегрировать роботов в существующие процессы.",
+    Icon: GraduationScrollIcon,
+    title: "Курсы и образование",
+    desc: "3 уровня обучения: операторы, разработчики, AI-исследователи. Очно, выездной и онлайн формат.",
   },
   {
-    icon: "💼",
+    Icon: MoneyBag01Icon,
     title: "Гибкие условия",
     desc: "Продажа, аренда, лизинг. Работаем с юрлицами, НДС, рассрочка для корпоративных клиентов.",
   },
   {
-    icon: "🔄",
+    Icon: Settings01Icon,
     title: "Обновления и сервис",
     desc: "OTA обновления прошивок, плановое ТО, ремонт и замена запчастей. Гарантийное обслуживание.",
   },
@@ -45,15 +55,16 @@ export default function WhyUsSection() {
               Надёжный партнёр для бизнеса и науки
             </h2>
             <p className="text-slate-600 mb-8 leading-relaxed">
-              Alashed — IT-компания с опытом в автоматизации и цифровых решениях для бизнеса в Казахстане.
-              Мы не просто продаём роботов — мы помогаем внедрить их в ваши процессы.
+              Alashed — IT-компания с опытом в автоматизации и цифровых решениях для бизнеса.
+              Мы единственный официальный дистрибьютор Unitree Robotics в Центральной Азии.
+              Не просто продаём роботов — обучаем команды, интегрируем в процессы и сопровождаем на всём цикле.
             </p>
 
             {/* Key numbers */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               {[
-                { n: "6+", l: "моделей в каталоге" },
-                { n: "KZ", l: "Официальный партнёр" },
+                { n: "5", l: "стран ЦА" },
+                { n: "10+", l: "моделей Unitree" },
                 { n: "24/7", l: "Техподдержка" },
               ].map((item) => (
                 <div key={item.l} className="text-center bg-slate-50 rounded-xl p-4 border border-slate-200">
@@ -68,9 +79,7 @@ export default function WhyUsSection() {
               className="inline-flex items-center gap-2 bg-slate-900 text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-slate-800 transition-colors"
             >
               Связаться с нами
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              <ArrowRight01Icon size={16} color="currentColor" />
             </a>
           </div>
 
@@ -81,7 +90,9 @@ export default function WhyUsSection() {
                 key={a.title}
                 className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-blue-200 hover:bg-blue-50/50 transition-all duration-300"
               >
-                <div className="text-2xl mb-2">{a.icon}</div>
+                <div className="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center mb-3">
+                  <a.Icon size={18} color="#2563eb" />
+                </div>
                 <h3 className="font-semibold text-slate-900 text-sm mb-1">{a.title}</h3>
                 <p className="text-xs text-slate-500 leading-relaxed">{a.desc}</p>
               </div>

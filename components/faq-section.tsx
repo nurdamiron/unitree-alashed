@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { ArrowDown01Icon } from "hugeicons-react"
 
 const faqs = [
   {
@@ -48,6 +49,7 @@ export default function FAQSection() {
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-4">
             Часто задаваемые вопросы
           </h2>
+          <p className="text-slate-600">Ответы на самые распространённые вопросы о роботах Unitree.</p>
         </div>
 
         <div className="space-y-3">
@@ -61,10 +63,12 @@ export default function FAQSection() {
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 <span className="font-semibold text-slate-900 pr-4">{faq.q}</span>
-                <span className={`flex-shrink-0 w-6 h-6 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 transition-transform ${open === i ? "rotate-180" : ""}`}>
-                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                <span
+                  className={`flex-shrink-0 w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 transition-transform duration-200 ${
+                    open === i ? "rotate-180 bg-blue-50 border-blue-200" : ""
+                  }`}
+                >
+                  <ArrowDown01Icon size={14} color="currentColor" />
                 </span>
               </button>
               {open === i && (

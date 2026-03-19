@@ -3,6 +3,7 @@ import HeroSection from "@/components/hero-section"
 import StatsBar from "@/components/stats-bar"
 import ProductsSection from "@/components/products-section"
 import RentalSection from "@/components/rental-section"
+import TrainingSection from "@/components/training-section"
 import UseCasesSection from "@/components/use-cases-section"
 import WhyUsSection from "@/components/why-us-section"
 import HowToBuySection from "@/components/how-to-buy-section"
@@ -19,6 +20,7 @@ export default function Home() {
         <StatsBar />
         <ProductsSection />
         <RentalSection />
+        <TrainingSection />
         <UseCasesSection />
         <WhyUsSection />
         <HowToBuySection />
