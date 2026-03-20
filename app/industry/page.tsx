@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Промышленные решения | Роботы Unitree для бизнеса Центральной Азии",
   description:
     "Роботы Unitree для нефтегаза, горнодобывающей отрасли, энергетики и МЧС в Казахстане и Центральной Азии. Инспекция, патрулирование, спасательные операции.",
+  alternates: { canonical: "https://unitree.alashed.kz/industry" },
 }
 
 const industries = [

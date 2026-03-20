@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "О нас — Alashed | Официальный дистрибьютор Unitree в Центральной Азии",
   description:
     "Alashed — официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда и обучение в Казахстане, Узбекистане, Кыргызстане и других странах ЦА.",
+  alternates: { canonical: "https://unitree.alashed.kz/about" },
 }
 
 const countries = [

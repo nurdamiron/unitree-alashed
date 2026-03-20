@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "Обучение робототехнике Unitree | Курсы в Казахстане и ЦА | Alashed",
   description:
     "Курсы по управлению, программированию и ИИ для роботов Unitree. Очно в Алматы, выездное обучение по Центральной Азии. 3 уровня: базовый, продвинутый, исследовательский.",
+  alternates: { canonical: "https://unitree.alashed.kz/training" },
 }
 
 const courses = [

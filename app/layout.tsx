@@ -17,6 +17,69 @@ const exo2 = Exo_2({
 
 const BASE = "https://unitree.alashed.kz"
 
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${BASE}/#organization`,
+  name: "Unitree Alashed",
+  alternateName: "Alashed IT — Unitree",
+  url: BASE,
+  logo: {
+    "@type": "ImageObject",
+    url: `${BASE}/alashed-logo.svg`,
+    width: 180,
+    height: 40,
+  },
+  description:
+    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда и обучение. Роботы Go2, B2, G1, H2, R1.",
+  email: "unitree@alashed.kz",
+  telephone: "+77009001917",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Алматы",
+    addressCountry: "KZ",
+    addressRegion: "Алматинская область",
+  },
+  areaServed: [
+    { "@type": "Country", name: "Kazakhstan" },
+    { "@type": "Country", name: "Uzbekistan" },
+    { "@type": "Country", name: "Kyrgyzstan" },
+    { "@type": "Country", name: "Tajikistan" },
+    { "@type": "Country", name: "Turkmenistan" },
+  ],
+  sameAs: [
+    "https://wa.me/77009001917",
+    "https://t.me/alashed",
+    "https://www.instagram.com/alashed.kz/",
+    "https://it.alashed.kz",
+  ],
+  parentOrganization: {
+    "@type": "Organization",
+    name: "Alashed IT",
+    url: "https://it.alashed.kz",
+  },
+}
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${BASE}/#website`,
+  url: BASE,
+  name: "Unitree Alashed",
+  description:
+    "Официальный дистрибьютор Unitree Robotics в Центральной Азии",
+  publisher: { "@id": `${BASE}/#organization` },
+  inLanguage: "ru-KZ",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${BASE}/?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(BASE),
   title: {
@@ -58,12 +121,38 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE,
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "KZ",
+    "geo.placename": "Almaty, Kazakhstan",
+    "geo.position": "43.238949;76.889709",
+    ICBM: "43.238949, 76.889709",
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru" className={`${inter.variable} ${exo2.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrganization) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   )

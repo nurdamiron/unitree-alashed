@@ -12,12 +12,23 @@ export async function generateStaticParams() {
   return products.map((p) => ({ id: p.id }))
 }
 
+const BASE = "https://unitree.alashed.kz"
+
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const product = getProduct(params.id)
   if (!product) return {}
   return {
     title: `${product.name} — ${product.price} | Unitree Alashed Центральная Азия`,
     description: product.description,
+    alternates: { canonical: `${BASE}/products/${params.id}` },
+    openGraph: {
+      title: `${product.name} — ${product.price} | Unitree Alashed`,
+      description: product.description,
+      url: `${BASE}/products/${params.id}`,
+      images: product.images[0]
+        ? [{ url: product.images[0].src, alt: product.images[0].alt }]
+        : undefined,
+    },
   }
 }
 
@@ -27,8 +38,96 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   const related = getRelatedProducts(params.id)
 
+  const jsonLdProduct = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.images.map((img) => img.src),
+    brand: {
+      "@type": "Brand",
+      name: "Unitree",
+      url: "https://www.unitree.com",
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      price: product.price.replace(/[^0-9]/g, "") || "0",
+      priceValidUntil: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
+        .toISOString()
+        .split("T")[0],
+      availability: "https://schema.org/InStock",
+      url: `${BASE}/products/${params.id}`,
+      seller: {
+        "@type": "Organization",
+        name: "Unitree Alashed",
+        url: BASE,
+      },
+    },
+    additionalProperty: product.specs.map((s) => ({
+      "@type": "PropertyValue",
+      name: s.label,
+      value: s.value,
+    })),
+  }
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: BASE,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Каталог роботов",
+        item: `${BASE}/#products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `${BASE}/products/${params.id}`,
+      },
+    ],
+  }
+
+  const jsonLdProductFAQ =
+    product.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: product.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.a,
+            },
+          })),
+        }
+      : null
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProduct) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
+      />
+      {jsonLdProductFAQ && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdProductFAQ) }}
+        />
+      )}
       <Navbar />
       <main className="pt-16">
 
