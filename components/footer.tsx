@@ -11,11 +11,9 @@ const productLinks = [
 ]
 
 const companyLinks = [
+  { label: "Услуги", href: "/services" },
   { label: "О нас", href: "/about" },
-  { label: "Промышленные решения", href: "/industry" },
-  { label: "Обучение", href: "/training" },
   { label: "Аренда роботов", href: "/#rental" },
-  { label: "Применение", href: "/#usecases" },
   { label: "FAQ", href: "/#faq" },
   { label: "Контакты", href: "/#contact" },
 ]
@@ -28,7 +26,6 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <Image
@@ -42,8 +39,8 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-5">
-              Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда
-              и обучение в 5 странах региона.
+              Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда,
+              ИИ-разработка и обучение в 5 странах региона.
             </p>
             <div className="flex flex-wrap gap-1.5 mb-5">
               {countries.map((c) => (
@@ -61,7 +58,6 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Products */}
           <div>
             <p className="text-white font-semibold text-sm mb-4">Роботы</p>
             <ul className="space-y-2.5 text-sm">
@@ -75,7 +71,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
           <div>
             <p className="text-white font-semibold text-sm mb-4">Компания</p>
             <ul className="space-y-2.5 text-sm">
@@ -91,7 +86,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contacts */}
           <div>
             <p className="text-white font-semibold text-sm mb-4">Контакты</p>
             <ul className="space-y-3 text-sm">
@@ -99,8 +93,8 @@ export default function Footer() {
                 <Call02Icon size={16} color="#60a5fa" className="flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-white font-medium">WhatsApp / Telegram</p>
-                  <a href="https://wa.me/77009001917" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                    +7 700 900 1917
+                  <a href="https://wa.me/77479001790" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    +7 (747) 900-17-90
                   </a>
                   <p className="text-xs mt-0.5">Пн–Вс, 9:00–21:00</p>
                 </div>
@@ -117,14 +111,13 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <Location01Icon size={16} color="#60a5fa" className="flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white font-medium">Алматы, Казахстан</p>
+                  <p className="text-white font-medium">г. Алматы, Емцова 9В</p>
                   <p className="text-xs mt-0.5">Поставки по всей Центральной Азии</p>
                 </div>
               </li>
             </ul>
-            {/* Social links */}
             <div className="flex gap-3 mt-4">
-              <a href="https://wa.me/77009001917" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/77479001790" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-green-600 hover:border-green-600 transition-all"
                 aria-label="WhatsApp">
                 <WhatsappIcon size={14} color="white" />
@@ -156,10 +149,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 Alashed IT. Все права защищены. unitree.alashed.kz</p>
+          <p>© 2026 ТОО Alashed. Все права защищены. unitree.alashed.kz</p>
           <p>Unitree® — торговая марка YuShu Technology Co., Ltd (Ханчжоу, Китай)</p>
         </div>
       </div>

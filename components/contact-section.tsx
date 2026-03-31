@@ -32,7 +32,6 @@ export default function ContactSection() {
     <section id="contact" className="py-12 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Left: form */}
           <div>
             <p className="text-blue-600 font-semibold text-sm uppercase tracking-widest mb-3">
               Связаться
@@ -88,10 +87,10 @@ export default function ContactSection() {
                   >
                     <option value="buy">Купить робота</option>
                     <option value="rent">Арендовать</option>
+                    <option value="ai">ИИ-разработка и интеграция</option>
                     <option value="training">Записаться на обучение</option>
                     <option value="consult">Консультация</option>
                     <option value="partner">Партнёрство / дистрибьюция</option>
-                    <option value="edu">Корпоративная программа для вуза/компании</option>
                   </select>
                 </div>
 
@@ -103,16 +102,11 @@ export default function ContactSection() {
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-400 text-slate-900 bg-white text-sm"
                   >
                     <option value="">Не определился / нужна консультация</option>
-                    <option value="go2-air">Go2 Air ($1 600)</option>
-                    <option value="go2-pro">Go2 Pro ($2 800)</option>
-                    <option value="go2-x">Go2 X ($4 500)</option>
-                    <option value="go2-edu">Go2 EDU (по запросу)</option>
-                    <option value="b2">B2 (промышленный, от $76 900)</option>
-                    <option value="g1">G1 (гуманоид, от $13 500)</option>
-                    <option value="h2">H2 (гуманоид премиум, от $29 900)</option>
-                    <option value="r1-air">R1 AIR ($5 900)</option>
-                    <option value="r1-pro">R1 Pro (~$16 000)</option>
-                    <option value="r1-edu">R1 EDU (по запросу)</option>
+                    <option value="go2">Unitree Go2</option>
+                    <option value="b2">Unitree B2</option>
+                    <option value="g1">Unitree G1</option>
+                    <option value="h2">Unitree H2</option>
+                    <option value="r1">Unitree R1</option>
                   </select>
                 </div>
 
@@ -149,14 +143,12 @@ export default function ContactSection() {
             )}
           </div>
 
-          {/* Right: contacts */}
           <div className="space-y-6">
             <h3 className="text-xl font-display font-bold text-slate-900">Контакты</h3>
 
             <div className="space-y-4">
-              {/* WhatsApp */}
               <a
-                href="https://wa.me/77009001917"
+                href="https://wa.me/77479001790"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-green-300 hover:bg-green-50 transition-all group"
@@ -166,11 +158,10 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">WhatsApp</p>
-                  <p className="text-green-600 font-medium">+7 700 900 1917</p>
+                  <p className="text-green-600 font-medium">+7 (747) 900-17-90</p>
                   <p className="text-xs text-slate-500">Пн–Вс, 9:00–21:00</p>
                 </div>
               </a>
-              {/* Telegram */}
               <a
                 href="https://t.me/alashed"
                 target="_blank"
@@ -186,7 +177,6 @@ export default function ContactSection() {
                   <p className="text-xs text-slate-500">Быстрый ответ</p>
                 </div>
               </a>
-              {/* Email */}
               <a
                 href="mailto:unitree@alashed.kz"
                 className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all group"
@@ -200,19 +190,17 @@ export default function ContactSection() {
                   <p className="text-xs text-slate-500">Ответим в течение 24 часов</p>
                 </div>
               </a>
-              {/* Location */}
               <div className="flex gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
                 <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
                   <Location01Icon size={20} color="#2563eb" />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-900 text-sm">Алматы, Казахстан</p>
+                  <p className="font-semibold text-slate-900 text-sm">г. Алматы, Емцова 9В</p>
                   <p className="text-xs text-slate-500 mt-0.5">Поставки по всей Центральной Азии</p>
                 </div>
               </div>
             </div>
 
-            {/* Partner badge */}
             <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white">
               <p className="text-sm text-slate-400 mb-2">Часть экосистемы</p>
               <p className="text-xl font-display font-bold mb-1">Alashed IT</p>

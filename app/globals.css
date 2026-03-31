@@ -53,6 +53,18 @@ body {
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
+/* Product showcase cards — matches unitree.com aspect ratio */
+.product-card {
+  aspect-ratio: 5 / 4;
+}
+@media (min-width: 1024px) {
+  .product-card {
+    /* Exact unitree.com formula: 80vw / 3 cards */
+    height: calc(26.667vw - 9.6px);
+    aspect-ratio: unset;
+  }
+}
+
 /* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #2563EB 0%, #00D4FF 100%);

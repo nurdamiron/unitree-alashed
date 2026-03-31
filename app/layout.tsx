@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { Inter, Exo_2 } from "next/font/google"
 import "./globals.css"
+import { ExchangeRateProvider } from "@/components/exchange-rate-provider"
+import { getExchangeRate } from "@/lib/exchange-rate"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -31,11 +33,12 @@ const jsonLdOrganization = {
     height: 40,
   },
   description:
-    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда и обучение. Роботы Go2, B2, G1, H2, R1.",
+    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда, ИИ-разработка и обучение. Роботы Go2, B2, G1, H2, R1.",
   email: "unitree@alashed.kz",
-  telephone: "+77009001917",
+  telephone: "+77479001790",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Емцова 9В",
     addressLocality: "Алматы",
     addressCountry: "KZ",
     addressRegion: "Алматинская область",
@@ -48,7 +51,7 @@ const jsonLdOrganization = {
     { "@type": "Country", name: "Turkmenistan" },
   ],
   sameAs: [
-    "https://wa.me/77009001917",
+    "https://wa.me/77479001790",
     "https://t.me/alashed",
     "https://www.instagram.com/alashed.kz/",
     "https://it.alashed.kz",
@@ -87,7 +90,7 @@ export const metadata: Metadata = {
     template: "%s | Unitree Alashed",
   },
   description:
-    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда и обучение. Роботы Go2, B2, G1, H2, R1 в Казахстане, Узбекистане, Кыргызстане. Гарантия, техподдержка 24/7.",
+    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда, ИИ-разработка и обучение. Роботы Go2, B2, G1, H2, R1 в Казахстане, Узбекистане, Кыргызстане. Гарантия, техподдержка.",
   keywords: [
     "Unitree Казахстан",
     "роботы Центральная Азия",
@@ -98,7 +101,7 @@ export const metadata: Metadata = {
     "Unitree B2",
     "Unitree G1",
     "гуманоидный робот",
-    "обучение робототехнике",
+    "ИИ-интеграция роботов",
     "Alashed IT",
     "Unitree Узбекистан",
     "промышленные роботы ЦА",
@@ -109,13 +112,13 @@ export const metadata: Metadata = {
     url: BASE,
     siteName: "Unitree Alashed",
     title: "Unitree Alashed — Официальный дистрибьютор Unitree в Центральной Азии",
-    description: "Продажа, аренда и обучение. Go2 от $1 600, G1 от $13 500, B2 от $76 900. 5 стран ЦА.",
+    description: "Продажа, аренда, ИИ-разработка. Go2, B2, G1, H2, R1. 5 стран ЦА.",
     images: [{ url: `${BASE}/og-default.jpg`, width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Unitree Alashed — Роботы Unitree в Центральной Азии",
-    description: "Официальный дистрибьютор Unitree в ЦА. Go2, B2, G1, H2, R1. Продажа, аренда, обучение.",
+    description: "Официальный дистрибьютор Unitree в ЦА. Go2, B2, G1, H2, R1. Продажа, аренда, ИИ-интеграция.",
     images: [`${BASE}/og-default.jpg`],
   },
   alternates: {
@@ -140,7 +143,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const exchangeRate = await getExchangeRate()
+
   return (
     <html lang="ru" className={`${inter.variable} ${exo2.variable}`}>
       <head>
@@ -153,7 +158,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <ExchangeRateProvider initialRate={{ rate: exchangeRate.rate, date: exchangeRate.date }}>
+          {children}
+        </ExchangeRateProvider>
+      </body>
     </html>
   )
 }

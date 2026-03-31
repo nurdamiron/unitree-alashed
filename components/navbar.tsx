@@ -8,8 +8,7 @@ import { Menu01Icon, Cancel01Icon, ArrowRight01Icon } from "hugeicons-react"
 
 const navLinks = [
   { href: "/#products", label: "Роботы" },
-  { href: "/industry", label: "Отрасли" },
-  { href: "/training", label: "Обучение" },
+  { href: "/services", label: "Услуги" },
   { href: "/#rental", label: "Аренда" },
   { href: "/about", label: "О нас" },
 ]
@@ -41,7 +40,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/alashed-logo.svg"
@@ -56,7 +54,6 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((l) => (
               l.href.startsWith("/#") ? (
@@ -83,7 +80,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
             <a
               href="/#contact"
@@ -100,7 +96,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile burger */}
           <button
             className="md:hidden p-2 text-slate-600"
             onClick={() => setOpen(!open)}
@@ -114,7 +109,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu */}
         {open && (
           <div className="md:hidden pb-4 border-t border-slate-100 mt-2 pt-4 bg-white/95 backdrop-blur-md">
             {navLinks.map((l) => (

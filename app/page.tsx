@@ -2,11 +2,9 @@ import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import StatsBar from "@/components/stats-bar"
 import ProductsSection from "@/components/products-section"
+import ServicesSection from "@/components/services-section"
 import RentalSection from "@/components/rental-section"
-import TrainingSection from "@/components/training-section"
-import UseCasesSection from "@/components/use-cases-section"
 import WhyUsSection from "@/components/why-us-section"
-import HowToBuySection from "@/components/how-to-buy-section"
 import FAQSection from "@/components/faq-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
@@ -20,10 +18,10 @@ const jsonLdFAQ = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Сколько стоит Unitree Go2?",
+      name: "Какие услуги предоставляет Alashed?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Unitree Go2 доступен в четырёх версиях: Air от $1 600, Pro от $2 800, X от $4 500, EDU — по запросу. Цены указаны без учёта доставки и таможенных расходов.",
+        text: "Мы предоставляем полный цикл: продажу роботов Unitree, аренду от 1 дня, разработку ИИ-модулей (голосовое управление, компьютерное зрение, автономный агент), обучение персонала и техподдержку.",
       },
     },
     {
@@ -39,15 +37,15 @@ const jsonLdFAQ = {
       name: "Есть ли гарантия на роботов Unitree?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Да, все роботы поставляются с официальной гарантией производителя: Go2 и B2 — 12 месяцев, G1 стандарт — 8 месяцев, G1 EDU — 18 месяцев, R1 AIR — 6 месяцев, R1 Pro — 8 месяцев, R1 EDU — 12 месяцев.",
+        text: "Да, все роботы поставляются с официальной гарантией производителя от 12 до 18 месяцев в зависимости от модели.",
       },
     },
     {
       "@type": "Question",
-      name: "Сколько времени занимает доставка?",
+      name: "Сколько времени занимает поставка?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Среднее время поставки — 3–6 недель с учётом производства, таможенного оформления и доставки в Казахстан.",
+        text: "Производство и доставка с завода Unitree: 4–8 недель. Логистика и таможня: 2–4 недели. Итого от договора до запуска: 3–5 месяцев.",
       },
     },
     {
@@ -60,18 +58,10 @@ const jsonLdFAQ = {
     },
     {
       "@type": "Question",
-      name: "Чем Unitree Go2 отличается от Unitree B2?",
+      name: "Какие ИИ-модули вы разрабатываете?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Go2 — потребительский/образовательный квадрупод (~15 кг, от $1 600), идеален для обучения и исследований. B2 — промышленный (~60 кг, от $76 900), способный нести 120 кг, работать при -20°C.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Что такое Unitree G1 и для кого он подходит?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "G1 — самый доступный полноразмерный гуманоид на рынке ($13 500). Подходит для университетов, исследовательских лабораторий и компаний, работающих над воплощённым ИИ.",
+        text: "Голосовой оператор (STT + LLM), чат-интерфейс, компьютерное зрение (YOLO/GPT-4o Vision), автономный агент с памятью, дообучение (imitation/RL learning).",
       },
     },
   ],
@@ -100,25 +90,20 @@ const jsonLdLocalBusiness = {
   name: "Unitree Alashed",
   image: `${BASE}/alashed-wide-logo.png`,
   description:
-    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда и обучение по роботам Go2, B2, G1, H2, R1.",
+    "Официальный дистрибьютор Unitree Robotics в Центральной Азии. Продажа, аренда, ИИ-разработка и обучение.",
   url: BASE,
-  telephone: "+77009001917",
+  telephone: "+77479001790",
   email: "unitree@alashed.kz",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Емцова 9В",
     addressLocality: "Алматы",
     addressCountry: "KZ",
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
+      "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
     ],
     opens: "09:00",
     closes: "21:00",
@@ -149,11 +134,9 @@ export default function Home() {
         <HeroSection />
         <StatsBar />
         <ProductsSection />
+        <ServicesSection />
         <RentalSection />
-        <TrainingSection />
-        <UseCasesSection />
         <WhyUsSection />
-        <HowToBuySection />
         <FAQSection />
         <ContactSection />
       </main>
